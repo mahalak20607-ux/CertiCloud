@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Digital Certificate | CertiCloud">
+
+    <title>Certificate | CertiCloud</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body class="certificate-view-page">
+
+    <!-- TOP BAR -->
+
+    <header class="dashboard-header no-print">
+
+        <div class="dashboard-nav">
+
+            <a
+                href="dashboard.html"
+                class="dashboard-brand">
+
+                <span class="nav-logo">
+                    C
+                </span>
+
+                <span>
+                    CertiCloud
+                </span>
+
+            </a>
+
+
+            <div class="dashboard-actions">
+
+                <a
+                    href="dashboard.html"
+                    class="back-link">
+                    ← Dashboard
+                </a>
+
+                <button
+                    id="printButton"
+                    class="certificate-print-button">
+                    🖨 Print / Save PDF
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CERTIFICATE AREA -->
+
+    <main class="certificate-view-main">
+
+
+        <div
+            id="certificateLoading"
+            class="certificate-loading">
+
+            <div class="loading-spinner"></div>
+
+            <p>
+                Loading certificate...
+            </p>
+
+        </div>
+
+
+        <div
+            id="certificateError"
+            class="certificate-error hidden">
+
+            <div class="error-icon">
+                !
+            </div>
+
+            <h2>
+                Certificate Not Found
+            </h2>
+
+            <p>
+                The requested certificate could not be found.
+            </p>
+
+            <a
+                href="dashboard.html"
+                class="empty-button">
+                Return to Dashboard
+            </a>
+
+        </div>
+
+
+        <!-- CERTIFICATE -->
+
+        <article
+            id="certificateContainer"
+            class="professional-certificate hidden">
+
+
+            <!-- Decorative borders -->
+
+            <div class="certificate-border"></div>
+
+            <div class="certificate-inner">
+
+
+                <!-- HEADER -->
+
+                <div class="certificate-header">
+
+                    <div class="certificate-brand">
+
+                        <div class="certificate-logo">
+                            C
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                CertiCloud
+                            </strong>
+
+                            <span>
+                                Digital Certificate Platform
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="certificate-status">
+
+                        <span class="verified-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            VERIFIED
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TITLE -->
+
+                <div class="certificate-title">
+
+                    <span>
+                        CERTIFICATE OF ACHIEVEMENT
+                    </span>
+
+                    <h1 id="certificateTitle">
+                        Certificate of Achievement
+                    </h1>
+
+                    <div class="title-line"></div>
+
+                </div>
+
+
+                <!-- CONTENT -->
+
+                <div class="certificate-content">
+
+                    <p class="presented-text">
+                        This certificate is proudly presented to
+                    </p>
+
+
+                    <h2 id="studentName">
+                        Student Name
+                    </h2>
+
+
+                    <p
+                        id="certificateDescription"
+                        class="certificate-description">
+                        For successfully completing the program.
+                    </p>
+
+
+                    <div class="certificate-course">
+
+                        <span>
+                            COURSE / PROGRAM
+                        </span>
+
+                        <strong id="course">
+                            Course Name
+                        </strong>
+
+                    </div>
+
+
+                    <div class="certificate-details-grid">
+
+                        <div>
+
+                            <span>
+                                GRADE / RESULT
+                            </span>
+
+                            <strong id="grade">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                ISSUE DATE
+                            </span>
+
+                            <strong id="issueDate">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="certificate-footer">
+
+
+                    <div class="signature-block">
+
+                        <div class="signature-line"></div>
+
+                        <strong>
+                            CertiCloud
+                        </strong>
+
+                        <span>
+                            Authorized Issuer
+                        </span>
+
+                    </div>
+
+
+                    <div class="certificate-seal">
+
+                        <div class="seal-inner">
+                            ✓
+                        </div>
+
+                        <span>
+                            DIGITALLY<br>
+                            VERIFIED
+                        </span>
+
+                    </div>
+
+
+                    <div class="certificate-id-block">
+
+                        <span>
+                            CERTIFICATE ID
+                        </span>
+
+                        <strong id="certificateId">
+                            CERT-0000-XXXXXX
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VERIFICATION -->
+
+                <div class="certificate-verification">
+
+                    <span>
+                        This certificate can be verified using its unique
+                        Certificate ID.
+                    </span>
+
+                    <strong>
+                        CertiCloud Digital Verification
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+    <script
+        type="module"
+        src="js/certificate-details.js">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="CertiCloud User Dashboard">
+
+    <title>Dashboard | CertiCloud</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- =====================================================
+     LOADING
+===================================================== -->
+
+<div
+    id="dashboardLoading"
+    class="dashboard-loading">
+
+    <div class="loading-spinner"></div>
+
+    <p>
+        Loading dashboard...
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<div
+    id="dashboardContent"
+    class="dashboard-wrapper hidden">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-nav">
+
+
+            <!-- BRAND -->
+
+            <a
+                href="dashboard.html"
+                class="dashboard-brand">
+
+                <span class="nav-logo">
+                    C
+                </span>
+
+                <span>
+                    CertiCloud
+                </span>
+
+            </a>
+
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="dashboard-menu">
+
+                <a
+                    href="#dashboard"
+                    class="active"
+                    id="dashboardNav">
+
+                    Dashboard
+
+                </a>
+
+                <a
+                    href="issue-certificate.html">
+
+                    Issue Certificate
+
+                </a>
+
+                <a
+                    href="certificates.html">
+
+                    Certificates
+
+                </a>
+
+                <a
+                    href="#profile"
+                    id="profileNav">
+
+                    Profile
+
+                </a>
+
+            </nav>
+
+
+
+            <!-- USER -->
+
+            <div class="dashboard-actions">
+
+                <span
+                    id="userEmail"
+                    class="dashboard-user-email">
+
+                    Loading...
+
+                </span>
+
+                <button
+                    id="logoutButton"
+                    class="logout-button">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             DASHBOARD SECTION
+        ================================================= -->
+
+        <section
+            id="dashboard"
+            class="dashboard-view">
+
+
+            <!-- WELCOME -->
+
+            <section class="dashboard-welcome">
+
+                <div>
+
+                    <span class="welcome-label">
+                        CERTICLOUD DASHBOARD
+                    </span>
+
+                    <h1>
+                        Welcome back,
+                        <span id="userName">
+                            User
+                        </span>
+                    </h1>
+
+                    <p>
+                        Manage and view your digital certificates
+                        from one place.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="issue-certificate.html"
+                    class="primary-button">
+
+                    + Issue Certificate
+
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================= -->
+
+            <section class="dashboard-stats">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🎓
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total Certificates
+                        </span>
+
+                        <strong id="totalCertificates">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Verified Certificates
+                        </span>
+
+                        <strong id="verifiedCertificates">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📅
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Issued This Month
+                        </span>
+
+                        <strong id="monthlyCertificates">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ☁
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            System Status
+                        </span>
+
+                        <strong class="status-online">
+                            Online
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RECENT CERTIFICATES
+            ================================================= -->
+
+            <section class="dashboard-section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            CERTIFICATE MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Recent Certificates
+                        </h2>
+
+                        <p>
+                            Your latest issued certificates.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="certificates.html"
+                        class="view-all-link">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="certificate-table-wrapper">
+
+                    <table class="certificate-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Certificate
+                                </th>
+
+                                <th>
+                                    Certificate ID
+                                </th>
+
+                                <th>
+                                    Issued Date
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="recentCertificates">
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    class="table-loading">
+
+                                    <div class="small-spinner"></div>
+
+                                    Loading certificates...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================= -->
+
+            <section class="quick-actions-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            QUICK ACTIONS
+                        </span>
+
+                        <h2>
+                            Certificate Tools
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions-grid">
+
+
+                    <a
+                        href="issue-certificate.html"
+                        class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            +
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Issue Certificate
+                            </h3>
+
+                            <p>
+                                Create a new digital certificate.
+                            </p>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="certificates.html"
+                        class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            🎓
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                View Certificates
+                            </h3>
+
+                            <p>
+                                Browse all issued certificates.
+                            </p>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <a
+                        href="verify.html"
+                        class="quick-action-card">
+
+                        <div class="quick-action-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Verify Certificate
+                            </h3>
+
+                            <p>
+                                Verify a certificate using its ID.
+                            </p>
+
+                        </div>
+
+                        <span>
+                            →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFILE SECTION
+        ================================================= -->
+
+        <section
+            id="profile"
+            class="profile-view hidden">
+
+
+            <div class="dashboard-welcome">
+
+                <div>
+
+                    <span class="welcome-label">
+                        ACCOUNT
+                    </span>
+
+                    <h1>
+                        My Profile
+                    </h1>
+
+                    <p>
+                        View your CertiCloud account information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE CARD -->
+
+            <div class="profile-card">
+
+
+                <div class="profile-top">
+
+
+                    <div
+                        id="profileAvatar"
+                        class="profile-avatar">
+
+                        U
+
+                    </div>
+
+
+                    <div>
+
+                        <h2 id="profileName">
+                            User
+                        </h2>
+
+                        <p id="profileEmail">
+                            Loading...
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="profile-details">
+
+
+                    <div class="profile-detail">
+
+                        <span>
+                            FULL NAME
+                        </span>
+
+                        <strong id="profileFullName">
+                            —
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="profile-detail">
+
+                        <span>
+                            EMAIL ADDRESS
+                        </span>
+
+                        <strong id="profileEmailDetail">
+                            —
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="profile-detail">
+
+                        <span>
+                            USER ID
+                        </span>
+
+                        <strong
+                            id="profileUid"
+                            class="profile-uid">
+
+                            —
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="profile-detail">
+
+                        <span>
+                            ACCOUNT STATUS
+                        </span>
+
+                        <strong class="profile-active">
+                            Active
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer class="dashboard-footer">
+
+        <p>
+            © 2026 CertiCloud.
+            Digital Certificate Platform.
+        </p>
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     DASHBOARD JAVASCRIPT
+===================================================== -->
+
+<script
+    type="module"
+    src="js/dashboard.js">
+</script>
+
+
+<!-- =====================================================
+     PROFILE NAVIGATION
+===================================================== -->
+
+<script>
+
+    const dashboardNav =
+        document.getElementById("dashboardNav");
+
+    const profileNav =
+        document.getElementById("profileNav");
+
+    const dashboardView =
+        document.getElementById("dashboard");
+
+    const profileView =
+        document.getElementById("profile");
+
+
+    function showDashboardSection() {
+
+        dashboardView.classList.remove("hidden");
+
+        profileView.classList.add("hidden");
+
+        dashboardNav.classList.add("active");
+
+        profileNav.classList.remove("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    function showProfileSection() {
+
+        dashboardView.classList.add("hidden");
+
+        profileView.classList.remove("hidden");
+
+        dashboardNav.classList.remove("active");
+
+        profileNav.classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    dashboardNav.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            showDashboardSection();
+
+        }
+    );
+
+
+    profileNav.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+
+            showProfileSection();
+
+        }
+    );
+
+
+    // =====================================================
+    // LOAD FIREBASE USER PROFILE
+    // =====================================================
+
+    import("./firebase-config.js")
+        .then(({ auth }) => {
+
+            import(
+                "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js"
+            )
+            .then(
+                ({ onAuthStateChanged }) => {
+
+                    onAuthStateChanged(
+                        auth,
+                        (user) => {
+
+                            if (!user) {
+                                return;
+                            }
+
+
+                            const name =
+                                user.displayName ||
+                                user.email?.split("@")[0] ||
+                                "User";
+
+
+                            const email =
+                                user.email ||
+                                "No email";
+
+
+                            const profileName =
+                                document.getElementById(
+                                    "profileName"
+                                );
+
+                            const profileEmail =
+                                document.getElementById(
+                                    "profileEmail"
+                                );
+
+                            const profileFullName =
+                                document.getElementById(
+                                    "profileFullName"
+                                );
+
+                            const profileEmailDetail =
+                                document.getElementById(
+                                    "profileEmailDetail"
+                                );
+
+                            const profileUid =
+                                document.getElementById(
+                                    "profileUid"
+                                );
+
+                            const profileAvatar =
+                                document.getElementById(
+                                    "profileAvatar"
+                                );
+
+
+                            profileName.textContent =
+                                name;
+
+                            profileEmail.textContent =
+                                email;
+
+                            profileFullName.textContent =
+                                name;
+
+                            profileEmailDetail.textContent =
+                                email;
+
+                            profileUid.textContent =
+                                user.uid;
+
+                            profileAvatar.textContent =
+                                name
+                                    .charAt(0)
+                                    .toUpperCase();
+
+                        }
+                    );
+
+                }
+            );
+
+        });
+
+
+</script>
+
+
+</body>
+
+</html>

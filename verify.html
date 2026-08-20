@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Verify a CertiCloud digital certificate">
+
+    <title>Verify Certificate | CertiCloud</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body class="verify-page">
+
+
+<!-- NAVIGATION -->
+
+<header class="verify-header">
+
+    <div class="verify-nav">
+
+        <a
+            href="index.html"
+            class="dashboard-brand">
+
+            <span class="nav-logo">
+                C
+            </span>
+
+            <span>
+                CertiCloud
+            </span>
+
+        </a>
+
+
+        <a
+            href="index.html"
+            class="verify-home">
+
+            ← Home
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- MAIN -->
+
+<main class="verify-main">
+
+
+    <section class="verify-hero">
+
+        <div class="verify-icon">
+
+            ✓
+
+        </div>
+
+
+        <span class="dashboard-label">
+            DIGITAL CERTIFICATE VERIFICATION
+        </span>
+
+
+        <h1>
+            Verify a Certificate
+        </h1>
+
+
+        <p>
+            Enter the unique Certificate ID to verify
+            the authenticity of a CertiCloud certificate.
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <form
+            id="verifyForm"
+            class="verify-form">
+
+            <div class="verify-input-wrapper">
+
+                <span>
+                    🔎
+                </span>
+
+                <input
+                    id="certificateId"
+                    type="text"
+                    placeholder="Enter Certificate ID"
+                    autocomplete="off"
+                    required>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="verifyButton">
+
+                Verify Certificate
+
+            </button>
+
+        </form>
+
+
+        <p class="verify-example">
+
+            Example:
+            <strong>
+                CERT-2026-ABC123
+            </strong>
+
+        </p>
+
+    </section>
+
+
+
+    <!-- RESULT -->
+
+    <section
+        id="verificationResult"
+        class="verification-result hidden">
+
+
+        <!-- VALID -->
+
+        <div
+            id="validCertificate"
+            class="valid-certificate hidden">
+
+
+            <div class="valid-header">
+
+                <div class="valid-check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span>
+                        CERTIFICATE STATUS
+                    </span>
+
+                    <h2>
+                        Valid Certificate
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="valid-message">
+
+                <strong>
+                    ✓ Certificate successfully verified
+                </strong>
+
+                <p>
+                    This certificate exists in the CertiCloud
+                    digital certificate database.
+                </p>
+
+            </div>
+
+
+            <div class="verification-details">
+
+
+                <div class="verification-detail">
+
+                    <span>
+                        STUDENT NAME
+                    </span>
+
+                    <strong id="resultStudentName">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="verification-detail">
+
+                    <span>
+                        CERTIFICATE TITLE
+                    </span>
+
+                    <strong id="resultTitle">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="verification-detail">
+
+                    <span>
+                        COURSE / PROGRAM
+                    </span>
+
+                    <strong id="resultCourse">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="verification-detail">
+
+                    <span>
+                        GRADE / RESULT
+                    </span>
+
+                    <strong id="resultGrade">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="verification-detail">
+
+                    <span>
+                        ISSUE DATE
+                    </span>
+
+                    <strong id="resultDate">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="verification-detail">
+
+                    <span>
+                        CERTIFICATE ID
+                    </span>
+
+                    <strong
+                        id="resultCertificateId"
+                        class="verification-id">
+
+                        —
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="verification-footer">
+
+                <span>
+                    ✓ Verified by CertiCloud
+                </span>
+
+                <a
+                    id="viewCertificateButton"
+                    href="#">
+
+                    View Certificate →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- INVALID -->
+
+        <div
+            id="invalidCertificate"
+            class="invalid-certificate hidden">
+
+            <div class="invalid-icon">
+                !
+            </div>
+
+            <h2>
+                Certificate Not Found
+            </h2>
+
+            <p>
+                We could not find a certificate with this
+                Certificate ID.
+            </p>
+
+            <span>
+                Please check the ID and try again.
+            </span>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+
+<footer class="verify-footer">
+
+    <span>
+        © 2026 CertiCloud
+    </span>
+
+    <span>
+        Secure Digital Certificate Verification
+    </span>
+
+</footer>
+
+
+
+<script
+    type="module"
+    src="js/verify.js">
+</script>
+
+</body>
+
+</html>

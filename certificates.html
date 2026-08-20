@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Manage all CertiCloud certificates">
+
+    <title>Certificates | CertiCloud</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body class="dashboard-page">
+
+
+<header class="dashboard-header">
+
+    <div class="dashboard-nav">
+
+        <a
+            href="dashboard.html"
+            class="dashboard-brand">
+
+            <span class="nav-logo">C</span>
+
+            <span>CertiCloud</span>
+
+        </a>
+
+
+        <div class="dashboard-actions">
+
+            <a
+                href="dashboard.html"
+                class="back-link">
+
+                ← Dashboard
+
+            </a>
+
+            <button
+                id="logoutButton"
+                class="logout-button">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="certificates-main">
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="certificates-heading">
+
+        <div>
+
+            <span class="dashboard-label">
+                CERTIFICATE MANAGEMENT
+            </span>
+
+            <h1>
+                All Certificates
+            </h1>
+
+            <p>
+                View and manage certificates issued through
+                CertiCloud.
+            </p>
+
+        </div>
+
+
+        <a
+            href="issue-certificate.html"
+            class="issue-button">
+
+            <span>+</span>
+
+            Issue Certificate
+
+        </a>
+
+    </section>
+
+
+    <!-- STAT -->
+
+    <div class="certificate-summary">
+
+        <div class="summary-icon">
+            🎓
+        </div>
+
+        <div>
+
+            <span>
+                Total Certificates
+            </span>
+
+            <strong id="certificateCount">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <section class="certificate-list-card">
+
+
+        <div class="certificate-list-toolbar">
+
+            <div>
+
+                <h2>
+                    Certificate Records
+                </h2>
+
+                <p>
+                    Search and manage your issued certificates.
+                </p>
+
+            </div>
+
+
+            <div class="certificate-search">
+
+                <span>
+                    🔎
+                </span>
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search name or certificate ID...">
+
+            </div>
+
+        </div>
+
+
+        <!-- LOADING -->
+
+        <div
+            id="certificatesLoading"
+            class="certificates-loading">
+
+            <div class="loading-spinner"></div>
+
+            <p>
+                Loading certificates...
+            </p>
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div
+            id="certificateTableWrapper"
+            class="certificate-table-wrapper hidden">
+
+            <table class="certificate-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Student
+                        </th>
+
+                        <th>
+                            Certificate ID
+                        </th>
+
+                        <th>
+                            Course / Title
+                        </th>
+
+                        <th>
+                            Issue Date
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="certificateTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- EMPTY -->
+
+        <div
+            id="certificatesEmpty"
+            class="certificates-empty hidden">
+
+            <div class="empty-icon">
+                🎓
+            </div>
+
+            <h3>
+                No certificates found
+            </h3>
+
+            <p>
+                You haven't issued any certificates yet,
+                or your search returned no results.
+            </p>
+
+            <a
+                href="issue-certificate.html"
+                class="empty-button">
+
+                Issue Certificate
+
+            </a>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+            id="certificatesError"
+            class="certificates-error hidden">
+
+            <div class="error-icon">
+                !
+            </div>
+
+            <h3>
+                Unable to load certificates
+            </h3>
+
+            <p id="errorText">
+                Please try again.
+            </p>
+
+            <button
+                id="retryButton"
+                class="empty-button">
+
+                Try Again
+
+            </button>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<script
+    type="module"
+    src="js/certificates.js">
+</script>
+
+</body>
+
+</html>

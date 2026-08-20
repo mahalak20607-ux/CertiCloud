@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="CertiCloud Profile">
+
+    <title>Profile | CertiCloud</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<div
+    id="profileLoading"
+    class="dashboard-loading">
+
+    <div class="loading-spinner"></div>
+
+    <p>
+        Loading profile...
+    </p>
+
+</div>
+
+
+<div
+    id="profileContent"
+    class="dashboard-wrapper hidden">
+
+
+    <!-- HEADER -->
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-nav">
+
+
+            <a
+                href="dashboard.html"
+                class="dashboard-brand">
+
+                <span class="nav-logo">
+                    C
+                </span>
+
+                <span>
+                    CertiCloud
+                </span>
+
+            </a>
+
+
+            <nav class="dashboard-menu">
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="issue-certificate.html">
+                    Issue Certificate
+                </a>
+
+                <a href="certificates.html">
+                    Certificates
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="active">
+
+                    Profile
+
+                </a>
+
+            </nav>
+
+
+            <div class="dashboard-actions">
+
+                <span
+                    id="profileHeaderEmail"
+                    class="dashboard-user-email">
+
+                    Loading...
+
+                </span>
+
+                <button
+                    id="profileLogoutButton"
+                    class="logout-button">
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <span class="welcome-label">
+                    ACCOUNT
+                </span>
+
+                <h1>
+                    My Profile
+                </h1>
+
+                <p>
+                    View your CertiCloud account information.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PROFILE CARD -->
+
+        <section class="profile-card">
+
+
+            <div class="profile-top">
+
+
+                <div
+                    id="profileAvatar"
+                    class="profile-avatar">
+
+                    U
+
+                </div>
+
+
+                <div>
+
+                    <h2 id="profileName">
+                        User
+                    </h2>
+
+                    <p id="profileEmail">
+                        Loading...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="profile-details">
+
+
+                <div class="profile-detail">
+
+                    <span>
+                        FULL NAME
+                    </span>
+
+                    <strong id="profileFullName">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <span>
+                        EMAIL ADDRESS
+                    </span>
+
+                    <strong id="profileEmailDetail">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <span>
+                        USER ID
+                    </span>
+
+                    <strong
+                        id="profileUid"
+                        class="profile-uid">
+
+                        —
+
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-detail">
+
+                    <span>
+                        ACCOUNT STATUS
+                    </span>
+
+                    <strong class="profile-active">
+                        Active
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <footer class="dashboard-footer">
+
+        <p>
+            © 2026 CertiCloud. Digital Certificate Platform.
+        </p>
+
+    </footer>
+
+
+</div>
+
+
+<script
+    type="module"
+    src="js/profile.js">
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="CertiCloud - Secure Digital Certificate Management and Verification System">
+
+    <title>CertiCloud | Digital Certificate Management</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f8fafc;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.94);
+            border-bottom: 1px solid #e8edf5;
+        }
+
+        .main-nav {
+            width: min(1180px, 92%);
+            margin: auto;
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 800;
+            font-size: 20px;
+            color: #111827;
+            white-space: nowrap;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+
+            display: grid;
+            place-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #6d5dfc,
+                #4f46e5
+            );
+
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px rgba(79,70,229,0.25);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #5d687b;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #5146d8;
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -9px;
+            height: 2px;
+            border-radius: 10px;
+            background: #5146d8;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-login {
+            padding: 10px 18px;
+            color: #4f46e5;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .nav-register {
+            padding: 11px 19px;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+
+            box-shadow:
+                0 8px 18px rgba(79,70,229,0.2);
+
+            transition: 0.25s;
+        }
+
+        .nav-register:hover {
+            transform: translateY(-2px);
+            background: #4338ca;
+        }
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero-section {
+            width: min(1180px, 92%);
+            margin: auto;
+
+            min-height: 650px;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 70px;
+
+            padding: 85px 0 100px;
+        }
+
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 14px;
+            border-radius: 30px;
+
+            background: #eef2ff;
+            border: 1px solid #dfe4ff;
+
+            color: #4f46e5;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+        .hero-badge span {
+            font-size: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(42px, 5vw, 67px);
+            line-height: 1.08;
+            letter-spacing: -2.8px;
+            color: #111827;
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 span {
+            color: #5b50e8;
+        }
+
+        .hero-content > p {
+            max-width: 570px;
+            color: #647084;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .primary-button,
+        .secondary-button {
+            min-height: 50px;
+            padding: 0 21px;
+            border-radius: 11px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            font-weight: 700;
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+        .primary-button {
+            color: white;
+            background: #4f46e5;
+            box-shadow: 0 10px 25px rgba(79,70,229,0.22);
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+            background: #4338ca;
+        }
+
+        .primary-button span {
+            font-size: 19px;
+        }
+
+        .secondary-button {
+            background: white;
+            color: #303a4e;
+            border: 1px solid #dfe4ed;
+        }
+
+        .secondary-button:hover {
+            border-color: #bfc7d8;
+            transform: translateY(-2px);
+        }
+
+        .hero-trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .hero-trust span {
+            color: #657185;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        /* ==================================================
+           CERTIFICATE PREVIEW
+        ================================================== */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+
+            width: 380px;
+            height: 380px;
+
+            background: #e8e7ff;
+            border-radius: 50%;
+
+            filter: blur(2px);
+            opacity: 0.8;
+        }
+
+        .certificate-preview {
+            position: relative;
+            z-index: 1;
+
+            width: min(500px, 100%);
+
+            background: white;
+
+            border: 1px solid #e3e7ef;
+            border-radius: 18px;
+
+            box-shadow:
+                0 30px 70px rgba(31,41,55,0.13);
+
+            overflow: hidden;
+
+            transform: rotate(1deg);
+            transition: 0.35s;
+        }
+
+        .certificate-preview:hover {
+            transform: rotate(0deg) translateY(-5px);
+        }
+
+        .certificate-top {
+            min-height: 82px;
+
+            padding: 20px 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .certificate-brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .certificate-logo {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 11px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+            background: #4f46e5;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .certificate-brand strong {
+            display: block;
+            color: #182033;
+            font-size: 15px;
+        }
+
+        .certificate-brand small {
+            color: #8791a3;
+            font-size: 10px;
+        }
+
+        .certificate-status {
+            padding: 6px 10px;
+            border-radius: 20px;
+
+            background: #ecfdf3;
+            color: #16834b;
+
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .certificate-body {
+            padding: 42px 45px 35px;
+            text-align: center;
+        }
+
+        .certificate-small {
+            color: #687286;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .certificate-body h2 {
+            margin-top: 12px;
+            color: #252d3d;
+            font-family: Georgia, serif;
+            font-size: 33px;
+        }
+
+        .certificate-body p {
+            color: #7a8495;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+
+        .certificate-body h3 {
+            margin-top: 12px;
+            color: #4f46e5;
+            font-family: Georgia, serif;
+            font-size: 25px;
+        }
+
+        .course-name {
+            display: block;
+            margin-top: 7px;
+            color: #293247;
+            font-size: 14px;
+        }
+
+        .certificate-line {
+            width: 80%;
+            height: 1px;
+            margin: 27px auto 20px;
+            background: #e5e8ee;
+        }
+
+        .certificate-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .certificate-details div {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .certificate-details small {
+            color: #8a93a3;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        .certificate-details strong {
+            color: #30394b;
+            font-size: 11px;
+        }
+
+
+        /* ==================================================
+           SECTIONS
+        ================================================== */
+
+        .features-section,
+        .how-section {
+            width: min(1180px, 92%);
+            margin: auto;
+            padding: 100px 0;
+        }
+
+        .features-section {
+            border-top: 1px solid #edf0f5;
+        }
+
+        .section-heading {
+            max-width: 680px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .section-label {
+            color: #5b50e8;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+        }
+
+        .section-heading h2 {
+            margin-top: 10px;
+            color: #172033;
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.15;
+            letter-spacing: -1.4px;
+        }
+
+        .section-heading p {
+            margin-top: 15px;
+            color: #718096;
+            font-size: 15px;
+        }
+
+
+        /* ==================================================
+           FEATURES
+        ================================================== */
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 29px 25px;
+
+            background: white;
+            border: 1px solid #e6eaf1;
+            border-radius: 15px;
+
+            transition: 0.25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(30,41,59,0.08);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 13px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 20px;
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .feature-icon.purple {
+            color: #5b50e8;
+            background: #eeedff;
+        }
+
+        .feature-icon.blue {
+            color: #2563eb;
+            background: #eaf2ff;
+        }
+
+        .feature-icon.green {
+            color: #15915a;
+            background: #e9faf1;
+        }
+
+        .feature-icon.orange {
+            color: #d97706;
+            background: #fff5df;
+        }
+
+        .feature-card h3 {
+            color: #202a3c;
+            font-size: 16px;
+            margin-bottom: 9px;
+        }
+
+        .feature-card p {
+            color: #748094;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* ==================================================
+           HOW IT WORKS
+        ================================================== */
+
+        .how-section {
+            border-top: 1px solid #edf0f5;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .step-card {
+            position: relative;
+
+            padding: 30px 25px;
+
+            background: white;
+            border: 1px solid #e6eaf1;
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .step-number {
+            color: #d4d8e2;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .step-icon {
+            width: 52px;
+            height: 52px;
+
+            margin: 15px auto;
+
+            border-radius: 14px;
+
+            display: grid;
+            place-items: center;
+
+            background: #f0efff;
+
+            font-size: 21px;
+        }
+
+        .step-card h3 {
+            color: #202a3c;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            color: #748094;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* ==================================================
+           CTA
+        ================================================== */
+
+        .cta-section {
+            width: min(1180px, 92%);
+            margin: 0 auto 90px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4338ca,
+                    #6366f1
+                );
+
+            padding: 75px 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 25px 55px rgba(79,70,229,0.22);
+        }
+
+        .cta-section .section-label {
+            color: #dfe2ff;
+        }
+
+        .cta-content h2 {
+            max-width: 650px;
+            margin: 10px auto;
+
+            color: white;
+
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.2;
+        }
+
+        .cta-content p {
+            max-width: 580px;
+            margin: 15px auto 28px;
+
+            color: #e4e7ff;
+            font-size: 15px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 13px 21px;
+
+            border-radius: 10px;
+
+            background: white;
+            color: #4338ca;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            transition: 0.25s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        .main-footer {
+            background: #111827;
+            color: white;
+        }
+
+        .footer-container {
+            width: min(1180px, 92%);
+            margin: auto;
+
+            padding: 65px 0;
+
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 70px;
+        }
+
+        .footer-brand .brand {
+            color: white;
+        }
+
+        .footer-brand p {
+            max-width: 340px;
+            margin-top: 18px;
+
+            color: #9ca6b7;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .footer-title {
+            margin-bottom: 8px;
+
+            color: white;
+
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a {
+            color: #9ca6b7;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(2px);
+        }
+
+        .footer-bottom {
+            width: min(1180px, 92%);
+            margin: auto;
+
+            padding: 20px 0;
+
+            border-top: 1px solid #273143;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            color: #7f899a;
+            font-size: 11px;
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 65px;
+            }
+
+            .hero-content {
+                margin: auto;
+            }
+
+            .hero-buttons,
+            .hero-trust {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                max-width: 600px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .main-nav {
+                min-height: 68px;
+            }
+
+            .nav-login {
+                display: none;
+            }
+
+            .nav-register {
+                padding: 9px 13px;
+                font-size: 12px;
+            }
+
+            .brand-name {
+                font-size: 17px;
+            }
+
+            .brand-logo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .hero-section {
+                padding: 55px 0 75px;
+                gap: 45px;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+                letter-spacing: -1.8px;
+            }
+
+            .hero-content > p {
+                font-size: 15px;
+            }
+
+            .hero-trust {
+                gap: 12px;
+            }
+
+            .certificate-body {
+                padding: 32px 20px;
+            }
+
+            .certificate-top {
+                padding: 16px;
+            }
+
+            .certificate-details {
+                gap: 10px;
+            }
+
+            .features-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-section,
+            .how-section {
+                padding: 75px 0;
+            }
+
+            .cta-section {
+                padding: 55px 20px;
+                margin-bottom: 60px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding: 50px 0;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header class="main-header">
+
+    <nav class="main-nav">
+
+        <a href="index.html" class="brand">
+
+            <span class="brand-logo">C</span>
+
+            <span class="brand-name">
+                CertiCloud
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="#home" class="active">
+                Home
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="verify.html">
+                Verify Certificate
+            </a>
+
+        </div>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html" class="nav-login">
+                Login
+            </a>
+
+            <a href="register.html" class="nav-register">
+                Get Started
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==================================================
+     MAIN
+================================================== -->
+
+<main>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section id="home" class="hero-section">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <span>●</span>
+            Secure Digital Certificate Platform
+        </div>
+
+
+        <h1>
+            Create.
+            <span>Issue.</span>
+            Verify.
+            <br>
+            Digital Certificates
+            <br>
+            Made Simple.
+        </h1>
+
+
+        <p>
+            CertiCloud helps you create, issue, manage,
+            and verify professional digital certificates
+            securely from one cloud-based platform.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="register.html" class="primary-button">
+                Get Started
+                <span>→</span>
+            </a>
+
+            <a href="verify.html" class="secondary-button">
+                Verify Certificate
+            </a>
+
+        </div>
+
+
+        <div class="hero-trust">
+
+            <span>✓ Secure</span>
+            <span>✓ Cloud Based</span>
+            <span>✓ Easy Verification</span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CERTIFICATE -->
+
+    <div class="hero-visual">
+
+        <div class="certificate-preview">
+
+            <div class="certificate-top">
+
+                <div class="certificate-brand">
+
+                    <span class="certificate-logo">
+                        C
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            CertiCloud
+                        </strong>
+
+                        <small>
+                            Digital Credentials
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <span class="certificate-status">
+                    ✓ VERIFIED
+                </span>
+
+            </div>
+
+
+            <div class="certificate-body">
+
+                <span class="certificate-small">
+                    CERTIFICATE OF ACHIEVEMENT
+                </span>
+
+
+                <h2>
+                    Certificate
+                </h2>
+
+
+                <p>
+                    This certificate is proudly presented to
+                </p>
+
+
+                <h3>
+                    Student Name
+                </h3>
+
+
+                <p>
+                    for successfully completing
+                </p>
+
+
+                <strong class="course-name">
+                    Professional Course
+                </strong>
+
+
+                <div class="certificate-line"></div>
+
+
+                <div class="certificate-details">
+
+                    <div>
+
+                        <small>
+                            Certificate ID
+                        </small>
+
+                        <strong>
+                            CERT-2026-001
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            Issue Date
+                        </small>
+
+                        <strong>
+                            19 Aug 2026
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FEATURES
+================================================== -->
+
+<section id="features" class="features-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            PLATFORM FEATURES
+        </span>
+
+        <h2>
+            Everything You Need
+            for Digital Certificates
+        </h2>
+
+        <p>
+            A complete platform for creating,
+            managing, storing and verifying
+            digital certificates.
+        </p>
+
+    </div>
+
+
+    <div class="features-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon purple">
+                +
+            </div>
+
+            <h3>
+                Issue Certificates
+            </h3>
+
+            <p>
+                Create professional digital certificates
+                with unique certificate IDs.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon blue">
+                🔐
+            </div>
+
+            <h3>
+                Secure Storage
+            </h3>
+
+            <p>
+                Store certificate information securely
+                using Firebase Cloud Firestore.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon green">
+                ✓
+            </div>
+
+            <h3>
+                Easy Verification
+            </h3>
+
+            <p>
+                Verify certificates instantly using
+                a unique certificate ID.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon orange">
+                ☁
+            </div>
+
+            <h3>
+                Cloud Based
+            </h3>
+
+            <p>
+                Access your certificate management
+                system from anywhere.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     HOW IT WORKS
+================================================== -->
+
+<section id="how-it-works" class="how-section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            HOW IT WORKS
+        </span>
+
+        <h2>
+            Simple. Secure. Fast.
+        </h2>
+
+        <p>
+            Manage your digital certificates
+            in four simple steps.
+        </p>
+
+    </div>
+
+
+    <div class="steps-grid">
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <div class="step-icon">
+                👤
+            </div>
+
+            <h3>
+                Create Account
+            </h3>
+
+            <p>
+                Register securely and create
+                your CertiCloud account.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <div class="step-icon">
+                📝
+            </div>
+
+            <h3>
+                Enter Details
+            </h3>
+
+            <p>
+                Add student and course information
+                for the certificate.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <div class="step-icon">
+                🎓
+            </div>
+
+            <h3>
+                Issue Certificate
+            </h3>
+
+            <p>
+                Generate a professional certificate
+                with a unique ID.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <div class="step-icon">
+                🔎
+            </div>
+
+            <h3>
+                Verify
+            </h3>
+
+            <p>
+                Anyone can verify the certificate
+                using its unique ID.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CTA
+================================================== -->
+
+<section class="cta-section">
+
+    <div class="cta-content">
+
+        <span class="section-label">
+            GET STARTED
+        </span>
+
+        <h2>
+            Ready to Manage
+            Digital Certificates?
+        </h2>
+
+        <p>
+            Create your CertiCloud account and start
+            managing secure digital certificates today.
+        </p>
+
+        <a href="register.html" class="cta-button">
+            Create Free Account
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-logo">
+                    C
+                </span>
+
+                <span class="brand-name">
+                    CertiCloud
+                </span>
+
+            </a>
+
+
+            <p>
+                Secure and professional digital
+                certificate management made simple.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <span class="footer-title">
+                Quick Links
+            </span>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="verify.html">
+                Verify Certificate
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <span class="footer-title">
+                Platform
+            </span>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="certificates.html">
+                Certificates
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="verify.html">
+                Certificate Verification
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 CertiCloud. All rights reserved.
+        </span>
+
+        <span>
+            Secure Digital Certificate Management System
+        </span>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>

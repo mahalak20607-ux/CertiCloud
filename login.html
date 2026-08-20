@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Login to CertiCloud">
+
+    <title>Login | CertiCloud</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    C
+                </div>
+
+                <div>
+                    <h1>CertiCloud</h1>
+                    <p>Digital Certificate Management</p>
+                </div>
+
+            </div>
+
+
+            <div class="auth-heading">
+
+                <h2>Welcome back</h2>
+
+                <p>
+                    Sign in to manage your certificates.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required>
+
+                </div>
+
+
+                <div
+                    id="loginMessage"
+                    class="message">
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="primary-button">
+
+                    Sign In
+
+                </button>
+
+            </form>
+
+
+            <div class="auth-footer">
+
+                <span>
+                    Don't have an account?
+                </span>
+
+                <a href="register.html">
+                    Create account
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script
+        type="module"
+        src="js/login.js">
+    </script>
+
+</body>
+</html>
